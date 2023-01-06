@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import { TodoList } from './components/todo-list/todo-list.component';
-import { Todo } from './types/todo';
+import { TodoEditComponent, TodoList } from './components';
 
 export const App = () => {
   return (
-    <div className="container m-5">
-      <TodoList />
+    <div className="container m-5 row">
+      <div className="col-8">
+        <TodoList />
+      </div>
+      <div className="col-4">
+        <TodoEditComponent />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { TodoComponent } from '../todo/todo-component';
+import { TodoComponent } from '../todo/TodoComponent';
 
 export const TodoList = () => {
   return (

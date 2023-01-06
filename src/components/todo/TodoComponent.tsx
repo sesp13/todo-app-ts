@@ -1,5 +1,5 @@
-import './todo-component.scss';
-import { TodoComponentProps } from './todo-component.props';
+import './TodoComponent.scss';
+import { TodoComponentProps } from './TodoComponentProps';
 
 export const TodoComponent = ({ todoItem }: TodoComponentProps) => {
   return (
