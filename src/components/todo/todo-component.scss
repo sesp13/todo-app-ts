@@ -1,0 +1,18 @@
+.todo-box {
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+
+  .buttons-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin-right: 15px;
+    }
+
+  }
+
+}
