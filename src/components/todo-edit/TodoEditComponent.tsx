@@ -1,11 +1,42 @@
+import { useForm } from '../../hooks';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../store';
+
+interface editFormInterface {
+  text?: string;
+}
+
+const initialForm: editFormInterface = {
+  text: '',
+};
+
 export const TodoEditComponent = () => {
+  const dispatch = useDispatch();
+  const { formState, onInputChange, onResetForm } = useForm(initialForm);
+
+  const onFormSubmit = (event: any) => {
+    event.preventDefault();
+    const action = addTodo({
+      id: 1,
+      done: false,
+      text: formState.text,
+    });
+    dispatch(action);
+    onResetForm();
+  };
+
   return (
     <div>
       <h2>Add/Edit Todo</h2>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <div className="form-group mb-2">
           <label>Text</label>
-          <input type="text" name="" className="form-control" />
+          <input
+            type="text"
+            name="text"
+            onChange={onInputChange}
+            className="form-control"
+          />
         </div>
         <div className="form-check mb-2">
           <input
