@@ -27,7 +27,6 @@ export const TodoEditComponent = () => {
 
   return (
     <div>
-      <h2>Add/Edit Todo</h2>
       <form onSubmit={onFormSubmit}>
         <div className="form-group mb-2">
           <label>Text</label>
