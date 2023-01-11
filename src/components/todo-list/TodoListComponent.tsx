@@ -1,29 +1,12 @@
 import { TodoComponent } from '../todo/TodoComponent';
+import { TodoListComponentProps } from './TodoListComponentProps';
 
-export const TodoList = () => {
+export const TodoList = ({ todos }: TodoListComponentProps) => {
   return (
     <section>
-      <TodoComponent
-        todoItem={{
-          id: 1,
-          done: false,
-          text: 'Develop the todoApp',
-        }}
-      />
-      <TodoComponent
-        todoItem={{
-          id: 2,
-          done: false,
-          text: 'Add redux',
-        }}
-      />
-      <TodoComponent
-        todoItem={{
-          id: 2,
-          done: false,
-          text: 'Add testing',
-        }}
-      />
+      {todos.map(todo => (
+        <TodoComponent key={todo.id} todoItem={todo} />
+      ))}
     </section>
   );
 };
