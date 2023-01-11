@@ -21,7 +21,8 @@ export const todoSlice = createSlice({
   initialState: getInitialState(),
   reducers: {
     addTodo: (state: TodoState, action: PayloadAction<Todo>) => {
-      state.todos.push(action.payload);
+      state.todos.unshift(action.payload);
+      // Question: Where Should I implement the saving in the localstorage
       const newTodos = JSON.stringify(state.todos);
       localStorage.setItem('todos', newTodos);
     },
