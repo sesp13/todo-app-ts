@@ -1,6 +1,4 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { store } from './store';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { AddTodoPage, CompletedTodosPage, PendingTodosPage } from './pages';
 
 export const AppRoutes = () => {

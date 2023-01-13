@@ -16,19 +16,12 @@ const getInitialState = (): TodoState => {
   };
 };
 
-const saveTodos = (todos: Todo[]) => {
-  // Question: Where Should I implement the saving in the localstorage
-  const newTodos = JSON.stringify(todos);
-  localStorage.setItem('todos', newTodos);
-};
-
 export const todoSlice = createSlice({
   name: 'todo',
   initialState: getInitialState(),
   reducers: {
     addTodo: (state: TodoState, action: PayloadAction<Todo>) => {
       state.todos.unshift(action.payload);
-      saveTodos(state.todos);
     },
     toggleTodo: (state: TodoState, action: PayloadAction<number>) => {
       const id = action.payload;
@@ -39,12 +32,10 @@ export const todoSlice = createSlice({
           return todo;
         }
       });
-      saveTodos(state.todos);
     },
     deleteTodo: (state: TodoState, action: PayloadAction<number>) => {
       const id = action.payload;
       state.todos = state.todos.filter((todo) => todo.id !== id);
-      saveTodos(state.todos);
     },
   },
 });
