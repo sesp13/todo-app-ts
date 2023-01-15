@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on <TodoComponent /> should match the snapshot 1`] = `
+<div>
+  <div
+    class="row todo-box"
+  >
+    <div
+      class="col-6"
+    >
+      <p>
+        My testing todo
+      </p>
+    </div>
+    <div
+      class="col-6 buttons-box"
+    >
+      <button
+        class="btn btn-primary"
+      >
+        Done
+      </button>
+      <button
+        class="btn btn-secondary"
+      >
+        Edit
+      </button>
+      <button
+        class="btn btn-danger"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;
