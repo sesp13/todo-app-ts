@@ -22,11 +22,19 @@ export const TodoComponent = ({ todoItem }: TodoComponentProps) => {
         <p>{todoItem.text}</p>
       </div>
       <div className="col-6 buttons-box">
-        <button className="btn btn-primary" onClick={() => onToggleTodo()}>
+        <button
+          aria-label="toggle-btn"
+          className="btn btn-primary"
+          onClick={() => onToggleTodo()}
+        >
           {todoItem.done ? 'Uncomplete' : 'Done'}
         </button>
         <button className="btn btn-secondary">Edit</button>
-        <button className="btn btn-danger" onClick={() => onDeleteTodo()}>
+        <button
+          aria-label="delete-btn"
+          className="btn btn-danger"
+          onClick={() => onDeleteTodo()}
+        >
           Delete
         </button>
       </div>

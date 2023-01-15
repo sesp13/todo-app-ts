@@ -16,6 +16,7 @@ exports[`Tests on <TodoComponent /> should match the snapshot 1`] = `
       class="col-6 buttons-box"
     >
       <button
+        aria-label="toggle-btn"
         class="btn btn-primary"
       >
         Done
@@ -26,6 +27,7 @@ exports[`Tests on <TodoComponent /> should match the snapshot 1`] = `
         Edit
       </button>
       <button
+        aria-label="delete-btn"
         class="btn btn-danger"
       >
         Delete
