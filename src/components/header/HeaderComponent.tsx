@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 export const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -9,6 +9,7 @@ export const HeaderComponent = () => {
         <Link className="navbar-brand" to="/">
           Todo App
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -37,7 +38,10 @@ export const HeaderComponent = () => {
               </Link>
             </li>
           </ul>
-          <button onClick={() => navigate('/new')} className="btn btn-primary">
+          {
+            //Semantic HTML - This should be a Link
+          }
+          <button onClick={() => navigate("/new")} className="btn btn-primary">
             Create Todo
           </button>
         </div>

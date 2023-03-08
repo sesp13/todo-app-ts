@@ -1,14 +1,14 @@
-import { useForm } from '../../hooks';
-import { useDispatch } from 'react-redux';
-import { addTodo } from '../../store';
-import { useNavigate } from 'react-router-dom';
+import { useForm } from "../../hooks";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 interface editFormInterface {
   text?: string;
 }
 
 const initialForm: editFormInterface = {
-  text: '',
+  text: "",
 };
 
 export const TodoEditComponent = () => {
@@ -25,16 +25,17 @@ export const TodoEditComponent = () => {
     });
     dispatch(action);
     onResetForm();
-    navigate('/pending');
+    navigate("/pending");
   };
 
   return (
-    <div>
+    <div>{/**No need for div */}
       <form onSubmit={onFormSubmit}>
         <div className="form-group mb-2">
-          <label>Text</label>
+          <label htmlFor="text">Text</label>
           <input
             type="text"
+            id="text"
             name="text"
             value={text}
             onChange={onInputChange}
@@ -42,6 +43,10 @@ export const TodoEditComponent = () => {
           />
         </div>
         <div className="form-group">
+          {
+            //Semantic HTML
+            //https://thisthat.dev/button-vs-input-type-button/
+          }
           <input className="btn btn-success" type="submit" value="Save" />
         </div>
       </form>
