@@ -42,7 +42,8 @@ describe('Tests on <TodoEditComponent />', () => {
       </BrowserRouter>
     );
     const todoText = 'My Todo';
-    fireEvent.change(screen.getByDisplayValue(''), {
+    //Use getByLabelText
+    fireEvent.change(screen.getByLabelText('Text'), {
       target: { value: todoText },
     });
     fireEvent.click(screen.getByRole('button'));

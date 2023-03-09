@@ -1,13 +1,14 @@
-import { useDispatch } from 'react-redux';
-import { deleteTodo, toggleTodo } from '../../store';
-import './TodoComponent.scss';
-import { TodoComponentProps } from './TodoComponentProps';
+import { useDispatch } from "react-redux";
+import { deleteTodo, toggleTodo } from "../../store";
+import "./TodoComponent.scss";
+import { TodoComponentProps } from "./TodoComponentProps";
 
 export const TodoComponent = ({ todoItem }: TodoComponentProps) => {
   const dispatch = useDispatch();
 
   const onToggleTodo = () => {
     const action = toggleTodo(todoItem.id);
+    // dispatch(toggleTodo(todoItem.id))
     dispatch(action);
   };
 
@@ -27,7 +28,7 @@ export const TodoComponent = ({ todoItem }: TodoComponentProps) => {
           className="btn btn-primary"
           onClick={() => onToggleTodo()}
         >
-          {todoItem.done ? 'Uncomplete' : 'Done'}
+          {todoItem.done ? "Uncomplete" : "Done"}
         </button>
         <button className="btn btn-secondary">Edit</button>
         <button
