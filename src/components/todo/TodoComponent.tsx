@@ -7,9 +7,7 @@ export const TodoComponent = ({ todoItem }: TodoComponentProps) => {
   const dispatch = useDispatch();
 
   const onToggleTodo = () => {
-    const action = toggleTodo(todoItem.id);
-    // dispatch(toggleTodo(todoItem.id))
-    dispatch(action);
+    dispatch(toggleTodo(todoItem.id))
   };
 
   const onDeleteTodo = () => {

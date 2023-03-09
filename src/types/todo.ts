@@ -1,5 +1,5 @@
-export type Todo = {
-  readonly id: number,
-  readonly text: string,
-  readonly done: boolean
-}
+export type Todo = Readonly<{
+  id: number;
+  text: string;
+  done: boolean;
+}>;
