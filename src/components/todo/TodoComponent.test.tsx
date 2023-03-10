@@ -17,10 +17,12 @@ const todoItem: Todo = {
   id: 1,
 };
 
-const setUpTestComponent = (todoItem: Todo) =>
+const setUpTestComponent = (
+  props: Partial<React.ComponentProps<typeof TodoComponent>> = { todoItem }
+) =>
   render(
     <Provider store={store}>
-      <TodoComponent todoItem={todoItem} />
+      <TodoComponent todoItem={todoItem} {...props} />
     </Provider>
   );
 
@@ -30,30 +32,30 @@ describe('Tests on <TodoComponent />', () => {
   });
 
   test('should match the snapshot', () => {
-    const { container } = setUpTestComponent(todoItem);
+    const { container } = setUpTestComponent();
     expect(container).toMatchSnapshot();
   });
 
   test('should call onToogle action', () => {
-    setUpTestComponent(todoItem);
+    setUpTestComponent();
     fireEvent.click(screen.getByLabelText('toggle-btn'));
     expect(mockedDispatch).toHaveBeenCalledWith(toggleTodo(todoItem.id));
   });
 
   test('should call onDelete action', () => {
-    setUpTestComponent(todoItem);
+    setUpTestComponent();
     fireEvent.click(screen.getByLabelText('delete-btn'));
     expect(mockedDispatch).toHaveBeenCalledWith(deleteTodo(todoItem.id));
   });
 
   test('should show "Done" on toggle button if the todo is not completed', () => {
-    setUpTestComponent(todoItem);
+    setUpTestComponent();
     const toggleButton = screen.getByLabelText('toggle-btn');
     expect(toggleButton.textContent).toBe('Done');
   });
 
   test('should show "Uncomplete" on toggle button if the todo is completed', () => {
-    setUpTestComponent({ ...todoItem, done: true });
+    setUpTestComponent({ todoItem: { ...todoItem, done: true } });
     const toggleButton = screen.getByLabelText('toggle-btn');
     expect(toggleButton.textContent).toBe('Uncomplete');
   });
